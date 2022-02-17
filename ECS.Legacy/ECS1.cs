@@ -37,6 +37,30 @@ namespace ECS.Legacy
             else
                 Heater.TurnOff();
 
+            if (Console.KeyAvailable)
+            {
+                char C = Console.ReadKey().KeyChar;
+                switch (C)
+                {
+                    case 'a':
+                    case 'A':
+                        SetThreshold(10);
+                        break;
+                    case 'b':
+                    case 'B':
+                        SetThreshold(20);
+                        break;
+                    case 'c':
+                    case 'C':
+                        SetThreshold(30);
+                        break;
+                    case 'd':
+                    case 'D':
+                        SetThreshold(40);
+                        break;
+                }
+            }
+
         }
 
         public void SetThreshold(int thr)
