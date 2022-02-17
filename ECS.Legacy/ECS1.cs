@@ -2,27 +2,27 @@
 
 namespace ECS.Legacy
 {
-    public class ECS
+    public class ECS1
     {
+        private readonly IHeater Heater;
+        private readonly ITempSensor TempSensor;
         private int _threshold;
-        private readonly TempSensor _tempSensor;
-        private readonly Heater _heater;
 
-        public ECS(int thr)
+        public ECS1(int thr, IHeater heater, ITempSensor tempSensor)
         {
             SetThreshold(thr);
-            _tempSensor = new TempSensor();
-            _heater = new Heater();
+            Heater = heater;
+            TempSensor = tempSensor;
         }
 
         public void Regulate()
         {
-            var t = _tempSensor.GetTemp();
+            var t = TempSensor.GetTemp();
             Console.WriteLine($"Temperatur measured was {t}");
             if (t < _threshold)
-                _heater.TurnOn();
+                Heater.TurnOn();
             else
-                _heater.TurnOff();
+                Heater.TurnOff();
 
         }
 
@@ -38,12 +38,12 @@ namespace ECS.Legacy
 
         public int GetCurTemp()
         {
-            return _tempSensor.GetTemp();
+            return TempSensor.GetTemp();
         }
 
         public bool RunSelfTest()
         {
-            return _tempSensor.RunSelfTest() && _heater.RunSelfTest();
+            return TempSensor.RunSelfTest() && Heater.RunSelfTest();
         }
     }
 }
