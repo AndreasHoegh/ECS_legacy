@@ -8,7 +8,8 @@ namespace ECS.Legacy
 
         public int GetTemp()
         {
-            return gen.Next(-5, 45);
+           return gen.Next(0,10);
+           //return 15;
         }
 
         public bool RunSelfTest()
