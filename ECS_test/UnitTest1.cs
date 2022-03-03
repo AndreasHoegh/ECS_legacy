@@ -14,7 +14,7 @@ namespace ECS_test
         [SetUp]
         public void Setup()
         {
-            //Arrang
+            //Arrange
             //ecs = new ECS1(23, new FakeHeater(), new FakeTempSensor());
             //_tempSensor = new FakeTempSensor();
 
